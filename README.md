@@ -51,14 +51,13 @@ Unfortunately, due to time constraints, the following features could not be impl
 
 ## User Stories
 
-Any signed-up user can list a new space.
-```
-
+A signed-up user can list a new space.
 ```
 As a user
 So I can let people know I have a space to rent
 I would like to list a new space
 ```
+
 
 Users can list multiple spaces.
 ```
@@ -75,7 +74,6 @@ I would like to specify a name, description and price for my space
 ```
 
 Users should be able to offer a range of dates where their space is available.
-
 ```
 As a registered user
 So I can advertise my space
@@ -83,15 +81,15 @@ I would like to specify the date the space is available for
 ```
 
 A user can request to hire any space for one night, and this should be approved by the user that owns that space.
-
 ```
 As a user
 So that I can make a booking
 I would like to request to hire a space for one night
 ```
+
 ```
 As a registered user
-So that i can confirm a booking
+So that I can confirm a booking
 I would like to approve a users request to rent my space for one night
 ```
 
