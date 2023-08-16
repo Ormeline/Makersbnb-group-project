@@ -15,14 +15,11 @@ class RequestRepository
   
   def all
     requests = []
-
     sql = 'SELECT * FROM requests;'
     result = DatabaseConnection.exec_params(sql,[])
-
     result.each do |record|
         requests << create_request(record)
     end
-
     requests
   end
 
@@ -75,7 +72,7 @@ class RequestRepository
     request.from_user_id = record['from_user_id'].to_i
     request.to_user_id = record['to_user_id'].to_i
     request.listing_id = record['listing_id'].to_i
-    request.date = Date.parse(record['date']) #convert the date back to date object
+    request.date = Date.parse(record['date']) 
     request.confirmed_status = record['confirmed_status'] == 't' ? true : false
     request
   end

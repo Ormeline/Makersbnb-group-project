@@ -40,7 +40,6 @@ describe Application do
       response = get("/listings")
       expect(response.status).to eq (200)
       expect(response.body).to include ('log out')
-      #expect(response.body).to include ('requests')
     end 
   end 
 
@@ -51,9 +50,9 @@ describe Application do
       expect(response.body).to include ('date')
     end 
   end 
+
   context 'GET /new_listing' do
     it 'should return a create a new listing page' do
-      #set a user_id in the session to simulate a logged in user
       response = get('/new_listing')
       expect(response.status).to eq(200)
       expect(response.body).to include ('<h1>Welcome to ACMO: create your new listing</h1>')
@@ -78,7 +77,6 @@ describe Application do
  
     it 'does not allow creating a listing when not logged in' do
       get '/logout'
-      #attempt to create a new listing
       post '/new_listing', { name: 'Test Listing', description: 'This is a test listing.', price_per_night: 100, date_from: '2023-01-01', date_to: '2023-01-02'}
   
       expect(last_response.status).to eq 302
