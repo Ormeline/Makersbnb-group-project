@@ -1,0 +1,65 @@
+  <% @listings.each do |listing| %>
+    <li>
+      <h2><%= listing.name %></h2>
+      <p>Description: <%= listing.description %></p>
+      <p>Price per night: <%= listing.price_per_night %></p>
+      <p>Available from: <%= listing.date_from %></p>
+      <p>Available to: <%= listing.date_to %></p> <br>
+    </li>
+    <!-- Button to book a space -->
+    <form action="/listing" method="get">
+        <button type="submit">Request Booking</button>
+    </form>
+    <% end %>  
+
+  Ann's tests
+
+    # context 'GET /requests/confirm' do
+  #   it 'displays confirmation after booking' do
+  #     get '/requests/confirm'
+  #     expect(last_response.status).to eq(200)
+  #     expect(last_response.body).to include('Your request has been submitted!')
+  #   end
+  # end
+#===========?
+  # context '/requests/new' do
+  #   it 'returns a form for making a booking request' do
+  #     response = get('/requests/new', listing_id: 1)
+  #     expect(response.status).to eq(200)
+  #     expect(response.body).to include('Submit Request')
+  #   end
+  # end
+=begin
+  #========booking request from a host
+  context '/listing/1/requests/new' do
+    it 'displays form for creating a new request' do
+      response = get '/listing/1/requests/new'
+      expect(last_response).to eq(200)
+      expect(last_response.body).to include('Request to book')
+    end
+
+    it 'creates a new request' do
+      post '/listings/1/requests', { from_date: '2023-01-01', to_date: '2023-01-01' }
+      follow_redirect!
+      #we'r assuming that the listing page shows a success message
+      expect(last_response.body).to include('Your request has been submitted!')
+    end
+  end
+=end
+#=======
+  # context '/listings' do
+  #   it "returns a series of listings, a log out button, a request button" do 
+  #     response = get("/listings")
+  #     expect(response.status).to eq (200)
+  #     expect(response.body).to include ('log out')
+  #     #expect(response.body).to include ('requests')
+  #   end 
+  # end 
+
+  # context '/requests/new' do
+  #   it 'returns a form for making a booking request' do
+  #     response = get('/requests/new', listing_id: 1)
+  #     expect(response.status).to eq(200)
+  #     expect(response.body).to include('Submit Request')
+  #   end
+  # end

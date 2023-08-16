@@ -1,0 +1,117 @@
+<!-- file: listing.erb -->
+<!-- All listings are  here -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our lovely Listings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+            margin-top: 0;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        p {
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        li {
+            list-style-type: none;
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            overflow: hidden; /* Added to prevent button overlap */
+        }
+
+        .listing-info {
+            float: left;
+            width: 70%;
+        }
+
+        .listing-buttons {
+            float: right;
+            width: 30%;
+            text-align: right;
+        }
+
+        a {
+            color: #333;
+            text-decoration: none;
+            background-color: #f9f9f9;
+            padding: 10px 20px;
+            border-radius: 4px;
+        }
+
+        a:hover {
+            background-color: #e6e6e6;
+        }
+
+        form {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        button {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>Our lovely Listings</h1>
+    <div>
+        <% @listings.each do |object| %>
+            <li>
+                <div class="listing-info">
+                    <h2><%= object.name %></h2>
+                    <p>Description: <%= object.description %></p>
+                    <p>Price per night: <%= object.price_per_night %></p>
+                    <p>Available from: <%= object.date_from %></p>
+                    <p>Available to: <%= object.date_to %></p>
+                </div>
+                <div class="listing-buttons">
+                    <a href="/listing/<%= object.id %>">Book</a>
+                </div>
+                <div style="clear: both;"></div> <!-- Added to clear float -->
+            </li>
+        <% end %>
+        <br>
+        <br>
+        <form action="/new_listing"" method="get">
+            <button type="submit">Creates a New Listing</button>
+        </form>
+        <form action="/requests" method="get">
+            <button type="submit">Requests</button>
+        </form>
+        <form action="/logout" method="post">
+            <button type="submit">Log Out</button>
+        </form>
+    </div>
+ 
+</body>
+</html>
+
+
+

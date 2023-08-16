@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose a date</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .listing {
+            margin-bottom: 20px;
+        }
+
+        .listing-name {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .listing-description {
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .listing-price {
+            font-weight: bold;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #ff0000;
+        }
+
+        .confirm-message {
+            margin-top: 10px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <h1>Choose a date</h1>
+    <div class="listing">
+        <div class="listing-name"><%= @listing.name %></div>
+        <div class="listing-description"><%= @listing.description %></div>
+        <div class="listing-price">£<%= @listing.price_per_night %></div>
+    </div>
+    <ul>
+        <% @dates.each do |object| %>
+            <li>
+                <a href="/requests" onclick="return confirm('Are you sure you want to book this date?')"><%= object.date %></a>
+            </li>
+        <% end %>
+    </ul>
+  
+</body>
+</html>

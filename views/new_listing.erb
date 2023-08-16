@@ -1,0 +1,104 @@
+<!-- file: views/new_listing.erb -->
+<!-- to create a new listing -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Listing</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f2f2f2;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="date"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #555;
+        }
+
+        button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to ACMO: Create Your New Listing</h1>
+    <form action="/new_listing" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description">
+
+        <label for="price_per_night">Price per night:</label>
+        <input type="number" id="price_per_night" name="price_per_night">
+
+        <label for="date_from">Available from:</label>
+        <input type="date" id="date_from" name="date_from">
+
+        <label for="date_to">Available to:</label>
+        <input type="date" id="date_to" name="date_to">
+
+        <input type="submit" value="Create Listing">
+    </form>
+
+    <br>
+    <br>
+    <!-- Button to return to home page -->
+    <form action="/" method="get">
+        <button type="submit">Homepage</button>
+    </form>
+    <br>
+    <br>
+</body>
+</html>
